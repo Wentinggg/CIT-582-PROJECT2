@@ -35,7 +35,7 @@ def process_order(order):
                       buy_currency=order['buy_currency'], sell_currency=order['sell_currency'],
                       buy_amount=order['buy_amount'], sell_amount=order['sell_amount'])
     session.add(add_order)
-    print('order: ' + str(order))
+#     print('order: ' + str(order))
 
     # 2. Check if there are any existing orders that match.
     new_order = session.query(Order).filter(Order.sender_pk == order['sender_pk'],
@@ -54,7 +54,7 @@ def process_order(order):
                                                  (Order.sell_amount / Order.buy_amount) >= (new_order.buy_amount / new_order.sell_amount)
                                                  ).first()
     # existing_order = session.query(Order).filter(Order.filled == new_order.filled, Order.buy_currency == new_order.sell_currency).first()
-    print(existing_order)
+#     print(existing_order)
 
     # Each order should match at most one other
     # one = session.query(check).first()
@@ -65,7 +65,7 @@ def process_order(order):
 
     # 3. If a match is found between order and existing_order:
     if existing_order:
-        print(existing_order.sender_pk)
+#         print(existing_order.sender_pk)
         # Set the filled field to be the current timestamp on both orders
         new_order.filled = datetime.now()
         existing_order.filled = datetime.now()
