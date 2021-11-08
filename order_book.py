@@ -35,7 +35,7 @@ def process_order(order):
                       buy_currency=order['buy_currency'], sell_currency=order['sell_currency'],
                       buy_amount=order['buy_amount'], sell_amount=order['sell_amount'])
     session.add(add_order)
-    session.commit()
+#     session.commit()
 
     # new_order = session.insert().values(buy_currency=order['buy_currency'],
     #                                     sell_currency=order['sell_currency'],
