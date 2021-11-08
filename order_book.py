@@ -101,5 +101,5 @@ def process_order(order):
                                         new_order.buy_amount - existing_order.sell_amount))
             session.add(child_order)
 
-    # session.commit()
-    # session.close()
+    session.commit()
+    session.close()
